@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <h1>登录参数文档</h1>
+
+        请求地址:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/login<br>
+        <hr>
+        请求参数:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;学号：num<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;密码：pwd<br>
+        <hr>
+        响应信息:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;发生异常信息：<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":"101","errMsg":"请不要输入空值！！！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":"102","errMsg":"MD5加密出错,请输入其他密码"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":"500","errMsg":"具体异常信息"}<br><br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;登录成功信息：<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学生登录成功实例：<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"collegeName":"计算机学院","stuNum":"04173011","nation":"汉","idCard":"612715199905305012","errCode":0,"sex":"男","telNum":"18888888888","birth":"1999-05-30","className":"软件1701","stuName":"王帅","majorName":"软件工程"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;老师登录成功实例：<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"collegeName":"外国语学院","teachName":"王晓","teachNum":"000001","idCard":"612725199905305123","errCode":0,"sex":"女","telNum":"12345678901","collegeNum":"02","birth":"1999-05-30"}
+                <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;登录失败信息：<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":2,"errMsg":"用户名或密码错误！"}
+</body>
+</html>

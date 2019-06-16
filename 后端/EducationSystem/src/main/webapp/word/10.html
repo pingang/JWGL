@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>根据工号或姓名查询老师参数文档</h1>
+
+
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/selTeach<br>
+<br>
+
+请求参数:<br>
+&nbsp;&nbsp;&nbsp;学号:teachNum<br>
+&nbsp;&nbsp;&nbsp;姓名:teachName<br>
+&nbsp;&nbsp;&nbsp;注：以上两个参数必须输入一个或者都输入<br>
+<br>
+<br>
+
+
+响应信息:<br>
+&nbsp;&nbsp;&nbsp;查询成功响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../4.png">查看响应信息</a><br><br>
+
+&nbsp;&nbsp;&nbsp;查询失败响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"至少输入一个值！"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+</body>
+</html>

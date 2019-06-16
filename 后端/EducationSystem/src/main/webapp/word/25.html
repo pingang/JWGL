@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>学生开始进行选课</h1>
+
+<h1>查询指定日期</h1>
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/startToOption<br>
+<br>
+
+请求参数:<br>
+&nbsp;&nbsp;&nbsp;学号：stuNum(测试时使用，后期不需要)<br>
+&nbsp;&nbsp;&nbsp;选课ID：optionalId(查询选课时可获得)<br>
+
+<hr>
+<br>
+
+响应信息:<br>
+&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"选课成功！"}<br>
+&nbsp;&nbsp;&nbsp;{\"errCode\":1,\"errMsg\":\"你的身份已过期！\"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":2,"errMsg":"选课失败！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"请不要输入空值！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xupt.dao.ActionMapper">
+
+
+    <select id="selectAction" resultType="action">
+        SELECT * FROM t_action WHERE start_time &lt;= #{0} AND #{0} &lt;= end_time
+    </select>
+
+    <insert id="insertRegisterMember">
+        INSERT INTO t_action_member
+        VALUES (#{0},#{1},#{2},#{3})
+    </insert>
+
+    <insert id="insertAction" parameterType="action">
+        INSERT into t_action VALUES (default ,#{actionName},#{startTime},#{endTime},#{number})
+    </insert>
+
+</mapper>

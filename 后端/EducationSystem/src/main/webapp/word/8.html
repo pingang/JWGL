@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>查询成绩参数文档</h1>
+
+
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/selScore<br>
+<br>
+
+请求参数:<br>
+&nbsp;&nbsp;&nbsp;学号:stuNum(后期不需要该参数，测试暂时保留)<br>
+&nbsp;&nbsp;&nbsp;年份:year<br>
+&nbsp;&nbsp;&nbsp;学期:semester<br>
+
+<hr>
+<br>
+
+<u>目前只存在一组数据：stuNum=04173011、year=2019、semester=2</u><br><br><br>
+
+响应信息:<br>
+&nbsp;&nbsp;&nbsp;   成绩查询成功响应信息：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../9.png">点击查看响应信息图片</a><br><br>
+&nbsp;&nbsp;&nbsp;    成绩查询失败响应信息：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"你的信息已过期，请重新操作！"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+</body>
+</html>

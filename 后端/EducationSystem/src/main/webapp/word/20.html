@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>老师给学生打分参数文档</h1>
+
+<h2>老师查看自己所带的课程</h2>
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/getCourseName<br>
+请求参数：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;年份：year<br>
+&nbsp;&nbsp;&nbsp;&nbsp;学期：semester<br>
+
+响应信息：<br>
+&nbsp;&nbsp;&nbsp;响应成功：<br>
+<a href="../22.png">点击查看响应示例</a><br>
+
+&nbsp;&nbsp;&nbsp;响应失败：<br>
+&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"你的信息已过期，请重新操作！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"请不要输入空值！！！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息!"}<br>
+
+
+<h2>老师查看该课程下自己的班级</h2>
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/getClassName<br>
+请求参数：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;年份：year<br>
+&nbsp;&nbsp;&nbsp;&nbsp;学期：semester<br>
+&nbsp;&nbsp;&nbsp;&nbsp;课程代号：courseNum<br>
+
+响应信息：<br>
+&nbsp;&nbsp;&nbsp;响应成功：<br>
+<a href="../20.png">点击查看响应示例</a><br>
+
+&nbsp;&nbsp;&nbsp;响应失败：<br>
+&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"你的信息已过期，请重新操作！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"请不要输入空值！！！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息!"}<br>
+
+
+<h2>老师查看自己所带的班级学生信息</h2>
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/selStuByClassName<br>
+请求参数：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;班级名称：className<br>
+
+响应信息：<br>
+&nbsp;&nbsp;&nbsp;响应成功：<br>
+<a href="../21.png">点击查看响应示例</a>
+
+&nbsp;&nbsp;&nbsp;响应失败：<br>
+&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"你的信息已过期，请重新操作！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"请不要输入空值！！！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息!"}<br>
+
+
+
+
+<h2>通过xls文件进行打分</h2>
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/setScoreByExcel<br>
+请求参数：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;文件：myFile<br>
+<br>
+<a href="../13.png"> 查看文件示例</a><br>
+<br>
+响应信息：<br>
+&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"评分成功！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"你的信息已过期，请重新操作！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":2,"errMsg":"抱歉，不存在该课程！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息!"}<br>
+
+
+
+<hr>
+
+<h2>通过输入进行打分</h2>
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/setScoreByData<br>
+请求参数：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;学号：stuNum<br>
+&nbsp;&nbsp;&nbsp;&nbsp;课程名字：courseName<br>
+&nbsp;&nbsp;&nbsp;&nbsp;成绩：score<br>
+响应信息：<br>
+&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"评分成功！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"评分失败！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":2,"errMsg":"你的信息已过期，请重新操作！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":3,"errMsg":"抱歉，不存在该课程！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"请不要输入空值！！！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息!"}<br>
+</body>
+</html>

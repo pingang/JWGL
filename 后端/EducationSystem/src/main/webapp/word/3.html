@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <h1>插入学生参数文档</h1>
+
+        <h2>通过xls文件插入学生</h2>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;请求地址:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/excelStu<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;请求参数:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xls文件：myFile<br>
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;响应信息:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"添加成功！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"请不要输入空文件！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":2,"errMsg":"不存在名字为"+array[2]+"的专业！"}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../1.png">点击查看学生xls文件格式</a>
+
+        <hr>
+
+        <h2>通过输入插入学生</h2>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;请求地址:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/dataStu<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;请求参数:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学号(必填):stuNum<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名(必填):stuName<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;专业名称(必填):majorName<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;班级名称(必填):className<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;身份证号:idCard<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;民族:nation<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话:telNum<br>
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;响应信息:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"添加成功！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"添加失败！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":2,"errMsg":"学号必须是8位！"}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\"errCode\":3,\"errMsg\":\"学号"+student.getStuNum()+"已被注册！\"}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":4,"errMsg":"请输入合法的身份证号码专业！"}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":5,"errMsg":"请输入正确的电话号码"}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":6,"errMsg":"不存在名字为"+majorName+"的专业！"}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"学号、姓名、专业名称和班级名称需要必填！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+</body>
+</html>

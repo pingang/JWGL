@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <h1>插入专业参数文档</h1>
+
+
+        请求地址:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/dataMajor<br>
+        <hr>
+
+        请求参数:<br>
+        &nbsp;&nbsp;&nbsp;专业代号:majorNum<br>
+        &nbsp;&nbsp;&nbsp;专业名称:majorName<br>
+        &nbsp;&nbsp;&nbsp;学院名称:collegeName<br>
+        <hr>
+
+        响应信息:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"添加成功！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"添加失败！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\"errCode\":2,\"errMsg\":\"不存在名字为"+major.getCollegeName()+"的学院！\"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":3,"errMsg":"该专业已被添加！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":100,"errMsg":"请登录教务主任账号！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"请不要输入空值！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+
+</body>
+</html>

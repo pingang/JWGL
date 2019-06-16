@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xupt.dao.SignInMapper">
+
+       <select id="selectCourseNumNow" resultType="integer">
+           SELECT course_num FROM t_stu_course WHERE stu_num = #{0} AND start_time = #{1} AND weekday = #{2} AND year = #{3} AND semester = #{4}
+       </select>
+
+        <select id="selectHadSignIn" resultType="integer">
+            SELECT state FROM t_sign WHERE stu_num = #{0} AND course_num = #{1}
+            AND DATE_FORMAT(date_time,'%Y-%m-%d')  = DATE_FORMAT(#{2},'%Y-%m-%d')
+        </select>
+
+        <update id="updateSignTime">
+            UPDATE t_sign SET state = #{1},date_time = #{2} WHERE stu_num = #{0}
+            AND DATE_FORMAT(date_time,'%Y-%m-%d')  = DATE_FORMAT(#{2},'%Y-%m-%d')
+            AND course_num = #{3}
+        </update>
+
+</mapper>

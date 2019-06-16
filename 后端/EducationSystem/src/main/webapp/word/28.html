@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <h1>学生给老师打分参数文档</h1>
+
+        <h2>查询学生的老师</h2>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;请求地址:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/getTeachOfStu<br>
+
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;响应信息:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询成功：<a href="">点击查看图片</a><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询失败：{"errCode":1,"errMsg":"请先登录！"}<br>
+
+
+        <h2>打分</h2>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;请求地址:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/giveTeachScore<br>
+        <br>
+
+
+        &nbsp;&nbsp;&nbsp;&nbsp;请求参数:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;老师工号：teachNum<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评分：score<br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;响应信息:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"评分成功！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"评分失败！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":2,"errMsg":"请先登录！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":3,"errMsg":"请不要重复评分！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"请不要输入空值！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xupt.dao.StuMapper">
+
+        <select id="loginByNumAndPwd" resultType="student">
+            SELECT
+                    s.*,m.major_name,c.college_name
+            FROM
+                    t_stu s,t_major m,t_college c
+            WHERE
+                    s.stu_num = #{0} AND s.password = #{1} AND s.major_id = m.major_id AND c.college_num = m.college_num
+        </select>
+
+
+        <insert id="insertStudents" parameterType="list">
+                INSERT INTO t_stu VALUES
+                <foreach collection="list" item="student" separator=",">
+                    (#{student.stuNum},#{student.password},#{student.stuName},#{student.sex},#{student.majorId},#{student.className},#{student.idCard},#{student.birth},#{student.nation},#{student.telNum})
+                </foreach>
+        </insert>
+
+        <update id="updatePwd">
+            UPDATE t_stu SET password = #{1} WHERE tel_num = #{0}
+        </update>
+
+        <select id="selectStuByStuNumOrStuName" resultType="student">
+            SELECT
+                    s.*,m.major_name,c.college_name
+            FROM
+                    t_stu s,t_major m,t_college c
+            WHERE
+                    s.major_id = m.major_id AND c.college_num = m.college_num
+                    <choose>
+                        <when test="stuNum != null and stuNum != '' and stuName != null and stuName != ''">
+                            AND stu_num = #{stuNum} AND stu_name = #{1}
+                        </when>
+                        <when test="stuNum != null and stuNum != ''">
+                            AND stu_num = #{stuNum}
+                        </when>
+                        <otherwise>
+                            AND stu_name = #{stuName}
+                        </otherwise>
+                    </choose>
+        </select>
+
+        <select id="selectStuByClassName" resultType="student">
+            SELECT
+                    s.*,m.major_name,c.college_name
+            FROM
+                    t_stu s,t_major m,t_college c
+            WHERE
+                    class_name = #{0} AND s.major_id = m.major_id AND c.college_num = m.college_num
+        </select>
+
+        <select id="selectStuByMajorName" resultType="student">
+            SELECT
+                    s.*,m.major_name,c.college_name
+            FROM
+                    t_stu s,t_major m,t_college c
+            WHERE
+                    s.major_id = m.major_id AND c.college_num = m.college_num
+
+                    AND s.major_id = (SELECT major_id FROM t_major WHERE major_name = #{0})
+        </select>
+
+        <select id="selectStuByCollegeName" resultType="student">
+            SELECT
+                    s.*,m.major_name,c.college_name
+            FROM
+                    t_stu s,t_major m,t_college c
+            WHERE
+                    s.major_id = m.major_id AND c.college_num = m.college_num
+
+                    AND s.major_id IN (SELECT major_id FROM t_major WHERE college_num =
+                    <choose>
+                        <when test=" collegeName != null and collegeName != '' ">
+                            (SELECT college_num FROM  t_college WHERE college_name = #{collegeName})
+                        </when>
+                        <otherwise>
+                            #{collegeNum}
+                        </otherwise>
+                    </choose>
+                    )
+        </select>
+
+
+        <select id="selectCourse" resultType="course">
+            SELECT  a.weekday,a.address,a.start_time,a.end_time,b.credit,b.course_name,b.elective,b.course_hour,c.teach_name
+            FROM `t_stu_course` a,t_course b,t_teach c
+            WHERE a.course_num = b.course_num AND c.teach_num = a.teach_num
+                  AND a.stu_num = #{0} AND a.year = #{1} AND a.semester = #{2}
+            ORDER BY  a.weekday,a.start_time;
+        </select>
+
+
+        <select id="selectScore" resultType="course">
+            SELECT DISTINCT(t_teach.teach_name),t_stu_course.teach_num,t_course.*,t_stu_course.score
+            FROM
+                t_stu_course,t_course,t_teach
+            WHERE t_stu_course.stu_num = #{0} AND t_stu_course.`year` = #{1} AND t_stu_course.semester = #{2}
+            AND t_stu_course.course_num = t_course.course_num AND t_stu_course.teach_num = t_teach.teach_num
+        </select>
+
+
+        <select id="selStuNum" resultType="string">
+            SELECT stu_num
+            FROM t_stu
+            WHERE class_name = #{0}
+        </select>
+
+        <update id="updateInformation" parameterType="student">
+            UPDATE t_stu SET sex=#{sex},id_card=#{idCard},birth=#{birth},nation=#{nation},tel_num=#{telNum} WHERE stu_num=#{stuNum}
+        </update>
+
+        <update id="updateTel">
+            UPDATE t_stu SET tel_num = #{1} WHERE stu_num = #{0}
+        </update>
+
+
+        <!--后期优化-->
+        <select id="selectCheckInTable" resultType="signIn">
+            SELECT t_stu_course.address,t_sign.date_time,t_sign.state,t_course.course_name,t_teach.teach_name
+            FROM t_stu_course,t_sign,t_course,t_teach
+            WHERE t_sign.stu_num = #{0}
+            AND t_sign.date_time BETWEEN #{1} AND #{2}
+            AND t_sign.stu_num = t_stu_course.stu_num
+            AND t_sign.course_num = t_stu_course.course_num
+            AND t_sign.weekday = t_stu_course.weekday
+            AND t_course.course_num = t_stu_course.course_num
+            AND t_teach.teach_num = t_stu_course.teach_num
+        </select>
+
+        <select id="selCourseByTime" resultType="course">
+            SELECT * FROM
+            t_stu_course WHERE stu_num = #{0} AND `year` = #{1} AND semester = #{2}
+            AND weekday = #{3} AND start_time BETWEEN #{4} AND #{5}
+        </select>
+
+
+        <insert id="insertStudentsToSignTable" parameterType="list">
+            INSERT INTO t_sign
+            VALUES
+            <foreach collection="list" item="course" separator=",">
+                (#{course.stuNum},#{course.courseNum},#{course.dateTime},-1,#{course.weekday})
+            </foreach>
+        </insert>
+
+        <select id="selectTeachOfStu" resultType="course">
+            SELECT t_course.course_name,t_teach.teach_name,t.teach_num
+            FROM t_course,t_teach,(
+                SELECT DISTINCT(course_num),teach_num FROM t_stu_course WHERE stu_num = #{0} AND `year` = #{1} AND semester = #{2})t
+            WHERE t.teach_num = t_teach.teach_num AND t_course.course_num = t.course_num
+        </select>
+
+        <insert id="insertTeachScore">
+            INSERT INTO t_stu_teach_score VALUES (#{0},#{1},#{2},#{3},#{4},#{5})
+        </insert>
+
+        <select id="selectHadGiveScore" resultType="int">
+            SELECT COUNT(*) FROM t_stu_teach_score WHERE stu_num = #{0} AND teach_num = #{1} AND year = #{2} AND semester = #{3}
+        </select>
+
+        <delete id="deleteStu">
+            DELETE FROM t_stu WHERE stu_num = #{0}
+        </delete>
+
+</mapper>

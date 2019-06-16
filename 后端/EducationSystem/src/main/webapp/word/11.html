@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>查询某一个班级的所有人</h1>
+
+
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/selStuByClassName<br>
+<br>
+
+请求参数:<br>
+&nbsp;&nbsp;&nbsp;班级名称:className(例如：软件1701)<br>
+&nbsp;&nbsp;&nbsp;页数:pn<br>
+<br>
+<br>
+
+
+响应信息:<br>
+&nbsp;&nbsp;&nbsp;查询成功响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../5.png">查看响应信息</a><br><br>
+
+&nbsp;&nbsp;&nbsp;查询失败响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"至少输入一个值！"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+</body>
+</html>

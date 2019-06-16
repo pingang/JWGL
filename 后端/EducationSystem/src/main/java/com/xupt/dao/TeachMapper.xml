@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xupt.dao.TeachMapper">
+
+        <select id="loginByNumPwd" resultType="teacher">
+            SELECT  t_teach.*,t_college.college_name
+            FROM t_teach,t_college
+            WHERE t_teach.teach_num = #{0} AND t_teach.password=#{1} AND t_teach.college_num = t_college.college_num
+        </select>
+
+        <update id="updatePwd">
+            UPDATE t_teach SET password = #{1} WHERE tel_num = #{0}
+        </update>
+
+
+        <insert id="insertTeachers" parameterType="list">
+            INSERT INTO t_teach VALUES
+            <foreach collection="list" item="teacher" separator=",">
+                (#{teacher.teachNum},#{teacher.password},#{teacher.teachName},#{teacher.telNum},#{teacher.collegeNum},#{teacher.sex},#{teacher.idCard},#{teacher.birth})
+            </foreach>
+        </insert>
+
+
+        <select id="selectTeachByTeachNumOrTeachName" resultType="teacher">
+             SELECT  t_teach.*,t_college.college_name
+             FROM t_teach,t_college
+             WHERE
+                   t_teach.college_num = t_college.college_num
+                   <choose>
+                       <when test="teachNum != null and teachNum != '' and teachName != null and teachName !=''">
+                           AND t_teach.teach_num = #{teachNum} AND t_teach.teach_name = #{teachName}
+                       </when>
+                       <when test="teachNum != null and teachNum != ''">
+                           AND t_teach.teach_num = #{teachNum}
+                       </when>
+                       <when test="teachName != null and teachName != ''">
+                           AND t_teach.teach_name = #{teachName}
+                       </when>
+                   </choose>
+        </select>
+
+        <select id="selectTeachByCollegeNum" resultType="teacher">
+            SELECT  t_teach.*,t_college.college_name
+            FROM t_teach,t_college
+            WHERE t_teach.college_num = t_college.college_num
+            AND t_teach.college_num =
+            <choose>
+                <when test="collegeName != null and collegeName != ''">
+                    (SELECT college_num FROM t_college WHERE college_name = #{collegeName})
+                </when>
+                <otherwise>
+                    #{collegeNum}
+                </otherwise>
+            </choose>
+
+        </select>
+
+
+        <update id="updateScore">
+            UPDATE t_stu_course SET score = #{2} WHERE stu_num = #{0} AND teach_num = #{3} AND course_num = #{1}
+        </update>
+
+        <select id="selectStuByTeach" resultType="student">
+            SELECT stu_num,stu_name,class_name
+            FROM t_stu
+            WHERE stu_num IN (SELECT DISTINCT(stu_num) FROM t_stu_course WHERE year = #{0} AND Semester = #{1} AND teach_num = #{2})
+            ORDER BY class_name
+        </select>
+
+
+        <update id="updateTel">
+            UPDATE t_teach SET tel_num = #{1} WHERE teach_num = #{0}
+        </update>
+
+
+
+        <select id="selectClassName" resultType="string">
+            SELECT DISTINCT(class_name)
+            FROM t_stu
+            WHERE stu_num IN
+                ( SELECT stu_num
+                  FROM t_stu_course WHERE `year` = #{0} AND semester = #{1} AND  course_num = #{2} AND teach_num = #{3}
+                )
+        </select>
+
+
+
+
+        <select id="selectCourseName" resultType="course">
+            SELECT DISTINCT(course_name),course_num
+            FROM t_course
+            WHERE course_num IN
+                ( SELECT course_num
+                  FROM t_stu_course WHERE teach_num = #{2} AND `year` = #{0} AND semester = #{1}
+                )
+        </select>
+
+        <update id="updateTeachCollege">
+            UPDATE t_teach SET college_num = #{1} WHERE teach_num = #{0}
+        </update>
+</mapper>

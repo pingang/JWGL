@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <h1>插入课程参数文档</h1>
+
+        <h2>通过xls文件插入课程</h2>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;请求地址:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/addCourseByExcel<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;请求参数:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xls文件：myFile<br>
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;响应信息:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"添加成功！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"请不要输入空文件！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\"errCode\":2,\"errMsg\":\"不存在名为"+strs[3]+"的学院！\"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../19.png">点击查看学生xls文件格式</a>
+
+        <hr>
+
+        <h2>通过输入插入课程</h2>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;请求地址:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/addCourseByInput<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;请求参数:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课程名字:courseName<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学分:credit<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是否选修:elective(是的话传1,否则传2)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所属学院:collegeName<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;课时:courseHour<br>
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;响应信息:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"添加成功！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":2,"errMsg":"不存在名字为"+collegeName+"的学院！"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"请不要输入空值"}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+</body>
+</html>

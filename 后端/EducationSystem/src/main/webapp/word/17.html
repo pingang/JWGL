@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>教务主任插入课表</h1>
+<h2>通过文件上传课表</h2>
+
+&nbsp;&nbsp;&nbsp;请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/addTimeTable<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;请求参数:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xls文件:myFile<br>
+<br>
+
+    <a href="../14.png">查看文件格式</a><br>cd
+
+&nbsp;&nbsp;&nbsp;响应信息：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查看成功响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"添加成功！"}<br><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询失败响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"请不要输入空文件！"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\"errCode\":2,\"errMsg\":\"不存在课程名为"+courseName+"的课程！\"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\"errCode\":3,\"errMsg\":\"不存在工号为"+teachNum+"的老师！\"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\"errCode\":4,\"errMsg\":\"不存在班级名为"+className+"的班级！\"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+<br>
+
+<br>
+<h2>通过输入上传课表</h2>
+
+&nbsp;&nbsp;&nbsp;请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/addTimeTableByInput<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;请求参数:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;专业名称：courseName<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教师编号：teachNum<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;班级名称：className<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;周几：weekday<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地址：address<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上课时间：startTime<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下课时间：endTime<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年份：year<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学期：semster<br>
+<br>
+&nbsp;&nbsp;&nbsp;响应信息：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查看成功响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"添加成功！"}<br><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询失败响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\"errCode\":1,\"errMsg\":\"不存在课程名为"+courseName+"的课程！\"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\"errCode\":2,\"errMsg\":\"不存在工号为"+teachNum+"的老师！\"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\"errCode\":3,\"errMsg\":\"不存在班级名为"+className+"的班级！\"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\"errCode\":101,\"errMsg\":\"请不要输入空值\"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+<br>
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+            <h1>忘记密码参数文档</h1>
+            流程<br>
+            <ol>
+                <li>发送验证码</li>
+                <li>检验验证码</li>
+                <li>确认密码</li>
+            </ol>
+            <ul>
+                <li>
+                    发送验证码请求地址:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8081/es/getValidCode<br>
+                    <hr>
+                    请求参数:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;电话号：tel<br>
+                    <hr>
+                    响应信息:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"发送成功"}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"请输入正确的电话号码"}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":2,"errMsg":"你操作的太频繁了！"}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":"101","errMsg":"请不要输入空值！！！"}<br>
+                </li>
+                <br>
+
+
+                <li>
+                    检验验证码验证码请求地址:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8081/es/checkValidCode<br>
+                    <hr>
+                    请求参数:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;验证号：validCode<br>
+                    <hr>
+                    响应信息:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"验证码正确！"}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"验证码错误！"}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":"101","errMsg":"请不要输入空值！！！"}<br>
+                </li>
+                <br>
+                <li>
+                    确认密码请求地址:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8081/es/enSurePwd<br>
+                    <hr>
+                    请求参数:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;第一次输出的密码：pwd1<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;第二次输出的密码：pwd2<br>
+                    <hr>
+                    响应信息:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"修改成功！"}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"修改失败！"}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":2,"errMsg":"密码不一致！"}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":3,"errMsg":"你的信息已过期，请重新操作！"}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{"errCode":"101","errMsg":"请不要输入空值！！！"}<br>
+                </li>
+            </ul>
+</body>
+</html>

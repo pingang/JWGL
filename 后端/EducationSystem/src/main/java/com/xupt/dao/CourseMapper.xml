@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xupt.dao.CourseMapper">
+
+    <select id="selCourseNum" resultType="string">
+        SELECT course_num FROM t_course WHERE course_name = #{0}
+    </select>
+
+
+    <insert id="insertTimeTable" parameterType="list">
+        INSERT INTO t_stu_course
+        VALUES
+        <foreach collection="list" item="course" separator=",">
+            (#{course.stuNum},#{course.courseNum},#{course.teachNum},#{course.weekday},#{course.address},#{course.startTime},#{course.endTime},#{course.year},#{course.semester},NULL )
+        </foreach>
+    </insert>
+
+
+    <insert id="insertOptionalCourse" parameterType="list">
+        INSERT INTO t_optional(course_num,teach_num,number,year,semester) VALUES
+        <foreach collection="list" item="course" separator=",">
+            (#{course.courseNum},#{course.teachNum},#{course.number},#{course.year},#{course.semester})
+        </foreach>
+    </insert>
+
+    <select id="selOptionalId" resultType="integer">
+        SELECT optional_id FROM t_optional WHERE course_num = #{courseNum} AND teach_num = #{teachNum} AND year = #{year} AND semester = #{semester}
+    </select>
+
+    <insert id="insertOptionalCourseTable" parameterType="list">
+        INSERT INTO t_optional_table VALUES
+        <foreach collection="list" item="course" separator=",">
+            (#{course.optionalId},#{course.weekday},#{course.address},#{course.startTime},#{course.endTime})
+        </foreach>
+    </insert>
+
+    <select id="selOptionalCourse" resultType="course">
+        SELECT t_optional.*,t_teach.teach_name,t_course.course_name
+        FROM t_optional,t_teach,t_course
+        WHERE t_optional.teach_num = t_teach.teach_num AND t_optional.course_num = t_course.course_num
+              AND t_optional.year = #{0} AND t_optional.semester=#{1}
+    </select>
+
+    <update id="updateOptionCourseNumber">
+        UPDATE t_optional SET number = number-1 WHERE number > 0 AND optional_id = #{0}
+    </update>
+
+    <select id="selOptionalTable" resultType="course">
+        SELECT *
+        FROM t_optional_table,t_optional
+        WHERE t_optional_table.optional_id = #{0} AND t_optional_table.optional_id = t_optional.optional_id
+    </select>
+
+    <insert id="addTableToStu" parameterType="list">
+        INSERT INTO t_stu_course VALUES
+        <foreach collection="list" item="course" separator=",">
+            (#{course.stuNum},#{course.courseNum},#{course.teachNum},#{course.weekday},#{course.address},#{course.startTime},#{course.endTime},#{course.year},#{course.semester},NULL)
+        </foreach>
+    </insert>
+
+    <insert id="insertCourse" parameterType="list">
+        INSERT INTO t_course(course_name,credit,elective,college_num,course_hour) VALUES
+        <foreach collection="list" item="course" separator=",">
+            (#{course.courseName},#{course.credit},#{course.elective},#{course.collegeNum},#{course.courseHour})
+        </foreach>
+    </insert>
+
+
+    <select id="selectStuRepeateCourse" resultType="int">
+        SELECT COUNT(*) FROM t_stu_course WHERE stu_num = #{0} AND course_num = (
+        SELECT course_num FROM t_optional WHERE optional_id = #{1})
+    </select>
+
+</mapper>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>插入选课记录</h1>
+
+<h2>通过输入插入选课记录</h2>
+
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/insertOptionalCourseByInput<br>
+<br>
+
+请求参数:<br>
+&nbsp;&nbsp;&nbsp;课程名:courseName<br>
+&nbsp;&nbsp;&nbsp;老师工号:teachNum<br>
+&nbsp;&nbsp;&nbsp;人数:number<br>
+&nbsp;&nbsp;&nbsp;年份:year<br>
+&nbsp;&nbsp;&nbsp;学期:semester<br>
+
+<br>
+
+响应信息:<br>
+&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"添加成功！"}<br>
+&nbsp;&nbsp;&nbsp;{\"errCode\":1,\"errMsg\":\"抱歉，课程表中不存在名为"+course.getCourseName()+"的课程！\"}<br>
+&nbsp;&nbsp;&nbsp;{\"errCode\":2,\"errMsg\":\"抱歉，不存在工号为"+course.getTeachNum()+"的老师！\"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":3,"errMsg":"添加失败！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"请不要输入空值！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+<hr>
+
+
+
+
+<h2>通过文件插入选课记录</h2>
+请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/insertOptionalCourseByExcel<br>
+<br>
+
+请求参数:<br>
+&nbsp;&nbsp;&nbsp;文件:myFile<br>
+<br>
+<a href="../16.png">点击查看文件格式</a><br>
+<br>
+
+响应信息:<br>
+&nbsp;&nbsp;&nbsp;{"errCode":0,"errMsg":"添加成功！"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"请不要输入空文件！"}<br>
+&nbsp;&nbsp;&nbsp;{\"errCode\":2,\"errMsg\":\"抱歉，课程表中不存在名为"+strings[0]+"的课程！\"}<br>
+&nbsp;&nbsp;&nbsp;{\"errCode\":3,\"errMsg\":\"抱歉，不存在工号为"+strings[1]+"的老师！\"}<br>
+&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>老师查询选了自己所教的课的学生</h1>
+
+
+&nbsp;&nbsp;&nbsp;请求地址:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://localhost:8080/es/teachSelStu<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;请求参数:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工号:teachNum(后期不需要，测试时保留)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年份:year<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学期:semester<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;响应信息：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查看成功响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../12.png">查看响应信息</a><br><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查询失败响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"你的信息已过期，请重新操作！"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":101,"errMsg":"请不要输入空值！"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}
+<br>
+
+
+响应信息:<br>
+&nbsp;&nbsp;&nbsp;查询成功响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../12.png">查看响应信息</a><br><br>
+
+&nbsp;&nbsp;&nbsp;查询失败响应：<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":1,"errMsg":"至少输入一个值！"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"errCode":500,"errMsg":"异常信息！"}<br>
+
+</body>
+</html>

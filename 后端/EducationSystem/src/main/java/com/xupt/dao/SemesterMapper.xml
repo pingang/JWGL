@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xupt.dao.SemesterMapper">
+
+    <insert id="insertSemester">
+        INSERT INTO t_semester VALUES (#{0},#{1},#{2},#{3})
+    </insert>
+
+    <update id="updateSemester">
+        UPDATE t_semester SET
+            start_date = #{startDate},end_date = #{endDate}
+        WHERE year = #{year} AND semester = #{semster}
+    </update>
+
+    <select id="selSemesterDate" resultMap="myMap">
+        SELECT * from t_semester WHERE year = #{0} AND semester = #{1}
+    </select>
+
+    <resultMap id="myMap" type="course">
+        <result property="startTime" column="start_date"></result>
+        <result property="endTime" column="end_date"></result>
+    </resultMap>
+</mapper>
