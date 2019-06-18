@@ -1,11 +1,10 @@
-package com.xupt.serviceImpl;
+package com.xupt.service.serviceImpl;
 
 import com.xupt.bean.Course;
 import com.xupt.bean.Student;
 import com.xupt.bean.Teacher;
 import com.xupt.dao.TeachMapper;
 import com.xupt.service.TeachService;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

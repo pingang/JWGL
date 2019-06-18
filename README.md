@@ -35,7 +35,9 @@
 
 
 
+需要连接Redis，你需要一台安装Redis的机器，更改IP地址即可：
 
+com.xupt.util.RedisCacheUtil.java
 
 
 

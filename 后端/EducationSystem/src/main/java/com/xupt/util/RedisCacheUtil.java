@@ -19,7 +19,7 @@ public class RedisCacheUtil {
             config.setTestOnBorrow(true);
 
 
-            pool = new JedisPool(config, "203.195.193.218",6379);
+            pool = new JedisPool(config, "localhost",6379);
     }
 
 

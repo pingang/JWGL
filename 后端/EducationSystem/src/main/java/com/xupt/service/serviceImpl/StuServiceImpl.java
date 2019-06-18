@@ -1,9 +1,8 @@
-package com.xupt.serviceImpl;
+package com.xupt.service.serviceImpl;
 
 import com.xupt.bean.Course;
 import com.xupt.bean.SignIn;
 import com.xupt.bean.Student;
-import com.xupt.bean.Teacher;
 import com.xupt.dao.StuMapper;
 import com.xupt.service.StuService;
 import org.springframework.beans.factory.annotation.Autowired;

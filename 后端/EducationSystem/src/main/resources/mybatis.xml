@@ -5,13 +5,12 @@
 <configuration>
 
     <settings>
+        <!-- 使用jdbc的getGeneratedKeys,获取自增主键k值-->
+        <setting name="useGeneratedKeys" value="true"/>
+        <!-- 开启驼峰命名转换 -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <setting name="logImpl" value="LOG4J"/>
     </settings>
-    
-    <typeAliases>
-        <package name="com.com.xupt.bean"/>
-    </typeAliases>
 
     <!-- 分页工具的配置 -->
     <plugins>
@@ -22,10 +21,5 @@
             <property name="reasonable" value="true" />
         </plugin>
     </plugins>
-
-    <mappers>
-        <package name="com.xupt.dao"/>
-    </mappers>
-
 
 </configuration>

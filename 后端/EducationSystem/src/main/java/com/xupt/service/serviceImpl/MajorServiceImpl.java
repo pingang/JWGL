@@ -1,4 +1,4 @@
-package com.xupt.serviceImpl;
+package com.xupt.service.serviceImpl;
 
 import com.xupt.bean.Major;
 import com.xupt.dao.MajorMapper;

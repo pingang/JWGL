@@ -1,4 +1,4 @@
-package com.xupt.serviceImpl;
+package com.xupt.service.serviceImpl;
 
 import com.xupt.bean.Course;
 import com.xupt.dao.CourseMapper;
@@ -9,7 +9,7 @@ import com.xupt.service.CourseService;
 import com.xupt.util.DataUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.ParseException;
 import java.util.List;
@@ -33,6 +33,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    @Transactional
     public void addTimeTable(List<Course> list) throws Exception {
 
         // 将课程信息添加到学生课表
@@ -79,6 +80,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    @Transactional
     public int addOptionTableToStu(String stuNum, Integer optionalId) throws Exception {
 
         // 判断该学生有没有重复选择

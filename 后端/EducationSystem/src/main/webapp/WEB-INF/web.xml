@@ -9,17 +9,6 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
     
-    
-    <!-- 注册Spring监听器，创建Spring的容器对象-->
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
-    </context-param>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-
-
     <!-- 配置中央调度器 -->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
@@ -28,7 +17,7 @@
         <!-- 自定义SpringMVC的配置文件位置 -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:SpringMVC.xml</param-value>
+            <param-value>classpath:spring/spring-*.xml</param-value>
         </init-param>
 
         <!-- 服务器启动创建对象-->

@@ -1,4 +1,4 @@
-package com.xupt.serviceImpl;
+package com.xupt.service.serviceImpl;
 
 import com.baidu.aip.face.AipFace;
 import com.xupt.service.FaceService;

@@ -16,7 +16,7 @@ import redis.clients.jedis.Jedis;
 @Aspect
 public class CollegeAdvice {
 
-    @Around("execution(* com.xupt.serviceImpl.CollegeServiceImpl.addCollege(..))")
+    @Around("execution(* com.xupt.service.serviceImpl.CollegeServiceImpl.addCollege(..))")
     public int addCollegeAOP(ProceedingJoinPoint point) throws Throwable {
 
         Jedis jedis = RedisCacheUtil.getJedis();
@@ -40,7 +40,7 @@ public class CollegeAdvice {
         return result;
     }
 
-    @Around("execution(* com.xupt.serviceImpl.CollegeServiceImpl.getCollegeNum(..))")
+    @Around("execution(* com.xupt.service.serviceImpl.CollegeServiceImpl.getCollegeNum(..))")
     public String getCollegeNumAOP(ProceedingJoinPoint point) throws Throwable {
 
         Jedis jedis = RedisCacheUtil.getJedis();

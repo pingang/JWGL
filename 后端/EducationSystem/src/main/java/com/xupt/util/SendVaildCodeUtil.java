@@ -9,14 +9,13 @@ import java.io.IOException;
 import java.util.Random;
 
 
-// 腾讯云短信验证码API
 public class SendVaildCodeUtil {
 
     // 短信应用SDK AppID
-    private static int appid = ;
+    private static int appid = 1400193243;
 
     // 短信应用SDK AppKey
-    private static String appkey = "";
+    private static String appkey = "97b2c3d4727e73d0c2a1754e93dcacd3";
 
     //发送验证码
     public static String sendVaildCode(String tel){

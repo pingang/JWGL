@@ -21,7 +21,7 @@ import java.util.List;
 public class TeachAdvice {
 
 
-    @Around("execution(* com.xupt.serviceImpl.TeachServiceImpl.addTeachers(..))")
+    @Around("execution(* com.xupt.service.serviceImpl.TeachServiceImpl.addTeachers(..))")
     public int addTeachAOP(ProceedingJoinPoint point) throws Throwable {
 
         Jedis jedis = RedisCacheUtil.getJedis();
